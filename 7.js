@@ -223,9 +223,9 @@ app.listen(PORT, () => {
 </body>
 </html>
 
-/*
-OUTPUT:
-In terminal , type:-
+
+//OUTPUT:
+/*In terminal , type:-
 node server.js
     Server running at http://localhost:3000
 Open browser
