@@ -1,0 +1,86 @@
+/*Steps 
+Initial Settings: 
+In command prompt , change the path to where your bin folder is located , there you 
+type mongod.. This runs the daemon process 
+C:\Users\DELL>cd C:\ProgramFiles\MongoDB\Server\8.0\bin 
+C:\Program Files\MongoDB\Server\8.0\bin>mongod 
+Open another command prompt ( to run the client/shell) 
+C:\Users\DELL>cd C:\ProgramFiles\MongoDB\Server\8.0\bin 
+C:\Program Files\MongoDB\Server\8.0\bin>mongosh 
+Execution steps: 
+1 create two json file transactions.json and transactions_upsert.json containing set of 
+documents. 
+2. Execute following mongodb commands in mongo shell. 
+  Step 1: Connect to MongoDB and switch to the usermanaged database 
+	  use usermanaged 
+  Step 2: Drop the transactions collection if it already exists 
+	  db.transactions.drop() 
+  Step 3: Create a new transactions collection  
+	  db.createCollection("transactions")*/
+
+
+//transactions.json
+[
+  {
+    "_id": 1,
+    "Name": "Somu",
+    "Payment": { "Total": 600 },
+    "Transaction": { "Price": 400 }
+  },
+  {
+    "_id": 2,
+    "Name": "Ravi",
+    "Payment": { "Total": 500 },
+    "Transaction": { "Price": 350 }
+  },
+  {
+    "_id": 3,
+    "Name": "Somu",
+    "Payment": { "Total": 700 },
+    "Transaction": { "Price": 450 }
+  }
+]
+
+
+/*
+• install mongoimport (Windows) 
+• Open the command prompt 
+	(put file location)mongoimport --db usermanaged --collection transactions --file (put file location)transactions.json --jsonArray 
+• reference command for above one --> "C:\ProgramFiles\MongoDB\Tools\mongodb-database-tools-windows-x86_64-100.14.1\bin\mongoimport.exe" --db usermanaged --collection transactions --file "C:\Program Files\MongoDB\Server\5.0\bin\transactions.json" --jsonArray
+Output 
+After Insert command:-
+Go to Mongosh prompt 
+To confirm whether the data got loaded from json file 
+Give db.transactions.find().sort({"_id":1}) */
+
+
+
+//UPSERT create transactions_upsert.json file
+[
+  {
+    "_id": 3,
+    "Name": "Anusha",
+    "Payment": { "Total": 500 },
+    "Transaction": { "Price": 400 }
+  },
+  {
+    "_id": 4,
+    "Name": "Bhuvan",
+    "Payment": { "Total": 1000 },
+    "Transaction": { "Price": 800 }
+  }
+] 
+
+
+/*upsert the data from transactions_upsert.json 
+• Back to command prompt, then type:- 
+• mongoimport --db usermanaged --collection transactions --file “copy paste the 
+path of transactions_upsert.json file” --jsonArray --mode upsert 
+• "C:\ProgramFiles\MongoDB\Tools\mongodb-database-tools-windows-x86_64-100.14.1\bin\mongoimport.exe" --db usermanaged --collection transactions --file 
+"C:\Users\Admin\Desktop\transactions_upsert.json" --jsonArray --mode upsert
+Output 
+After Insert command:-
+Go to mongosh 
+Check whether the document is updated 
+db.transactions.find().sort({"_id":1}) 
+*/
