@@ -238,8 +238,7 @@ You will see a form:
 Open browser
 http://localhost:3000/login.html
   Enter same email & password
-  Click Login
-*/
+  Click Login*/
 
 
 
