@@ -225,6 +225,7 @@ app.listen(PORT, () => {
 
 
 //OUTPUT:
+
 /*In terminal , type:-
 node server.js
     Server running at http://localhost:3000
@@ -239,3 +240,6 @@ http://localhost:3000/login.html
   Enter same email & password
   Click Login
 */
+
+
+
