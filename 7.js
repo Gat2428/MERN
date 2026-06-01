@@ -223,17 +223,17 @@ app.listen(PORT, () => {
 </body>
 </html>
 
-/*OUTPUT: -
+/*OUTPUT:
 In terminal , type:-
 node server.js
-o/p:- Server running at http://localhost:3000
+    Server running at http://localhost:3000
 Open browser
 http://localhost:3000/register.html
 You will see a form:
- Enter email
- Enter password
- Click Register
+  Enter email
+  Enter password
+  Click Register
 Open browser
 http://localhost:3000/login.html
- Enter same email & password
- Click Login*/
+  Enter same email & password
+  Click Login*/
