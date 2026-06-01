@@ -60,9 +60,10 @@ function DataCollector() {
     );
 }
 
+export default DataCollector; 
+
 /*Output
 In VS Code terminal type:-
 npm start
 Browser opens automatically
 URL: http://localhost:3000*/
-export default DataCollector; 
