@@ -23,21 +23,18 @@ const PORT = 3000;
 
 
 app.use(express.urlencoded({ extended: true }));
-
 app.use(express.static('public'));
 
 let users = [];
 
 app.post('/register', async (req, res) => {
     const { email, password } = req.body;
-
     const user = users.find(u => u.email === email);
 
     if (user) {
         return res.send('User already exists');
     }
-
-  
+    
     const hashedPassword = await bcrypt.hash(password, 10);
 
     users.push({
