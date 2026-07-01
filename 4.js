@@ -59,5 +59,3 @@ await client.close();
 }
 searchStudentsByName('Al');
 
-
-main().catch(console.error);
